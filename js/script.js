@@ -4,7 +4,7 @@ $('.icon-menu').click(function(event) {
     $('body').addClass('lock')
     $(this).toggleClass('active');
     $('.menu__body').toggleClass('active');
-    // $('body').toggleClass('lock')
+    $('body').toggleClass('lock')
 });
 $('.menu__link').click(function(event) {
     $('.icon-menu').toggleClass('active');
