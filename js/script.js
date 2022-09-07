@@ -1,5 +1,6 @@
 $('.wrapper').addClass('loaded');
 
+//menu burger
 const isMobile = {
     Android: function (){
         return navigator.userAgent.match(/Android/i);
@@ -31,7 +32,7 @@ $('.icon-menu').click(function(event) {
     $('.menu__body').toggleClass('active');
     $('body').toggleClass('lock');
 });
-if(isMobile.any()){
+if(isMobile.any() || $(window).width() <= '767.98'){
     $('.menu__link').click(function(event) {
         // $('body').addClass('lock')
         $('.icon-menu').toggleClass('active');
@@ -39,6 +40,7 @@ if(isMobile.any()){
         $('body').toggleClass('lock');
     });
 }
+//=======================================================
 
 function ibg(){
     $.each($('.ibg'), function(index, val) {
