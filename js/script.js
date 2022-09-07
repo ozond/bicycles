@@ -1,16 +1,44 @@
 $('.wrapper').addClass('loaded');
 
+const isMobile = {
+    Android: function (){
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function (){
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function (){
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function (){
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function (){
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function () {
+        return (
+            isMobile.Android() ||
+            isMobile.BlackBerry() ||
+            isMobile.iOS() ||
+            isMobile.Opera() ||
+            isMobile.Windows());
+    }
+};
 $('.icon-menu').click(function(event) {
-    $('body').addClass('lock')
+    // $('body').addClass('lock')
     $(this).toggleClass('active');
     $('.menu__body').toggleClass('active');
-    $('body').toggleClass('lock')
+    $('body').toggleClass('lock');
 });
-$('.menu__link').click(function(event) {
-    $('.icon-menu').toggleClass('active');
-    $('.menu__body').toggleClass('active');
-    $('body').remove('lock')
-});
+if(isMobile.any()){
+    $('.menu__link').click(function(event) {
+        // $('body').addClass('lock')
+        $('.icon-menu').toggleClass('active');
+        $('.menu__body').toggleClass('active');
+        $('body').toggleClass('lock');
+    });
+}
 
 function ibg(){
     $.each($('.ibg'), function(index, val) {
